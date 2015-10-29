@@ -1,0 +1,32 @@
+﻿@model IEnumerable<QuartzAdmin.web.Models.InstanceModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Welcome to Quartz Admin</h2>
+<p>
+    
+        <table>
+        @foreach (var instance in Model)
+        {
+            <tr>
+                <td><%=instance.InstanceName%></td>
+                <td>@Html.ActionLink("Connect", "Connect", "Instance", new { id = instance.InstanceName }, null)</td>
+                <td>@Html.ActionLink("View", "Details", "Instance", new{id=instance.InstanceName}, null)</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Instance", new{id=instance.InstanceName}, null)</td>
+            </tr>
+        
+        }
+        </table>
+        
+    </p>
+    <p>
+        @Html.ActionLink("Create New", "Create", "Instance")
+    </p>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Navigation</li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+</ul>
